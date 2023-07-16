@@ -1,9 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import Button from "./Button";
+import { motion } from "framer-motion";
 import { BiShoppingBag } from "react-icons/bi";
+import { getTransition } from "@/utils/getTransition";
+
 const Navbar = () => {
   return (
-    <header className="h-20 fixed top-0 left-0 right-0 bg-light/90 backdrop-blur-lg border-b border-dark/10 z-[100]">
+    <motion.header
+      initial={{ y: "-100%" }}
+      animate={{ y: 0 }}
+      transition={getTransition(0.6)}
+      className="h-20 fixed top-0 left-0 right-0 bg-light/90 backdrop-blur-lg border-b border-dark/10 z-[100]"
+    >
       <div className="wrapper w-full h-full flex justify-between items-center">
         {/* NAV LEFT */}
         <nav>
@@ -47,7 +57,7 @@ const Navbar = () => {
           <Button href="/login" placeholder="Login" color="green" />
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 };
 
