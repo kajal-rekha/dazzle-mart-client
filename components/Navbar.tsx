@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Button from "./Button";
-
+import { BiShoppingBag } from "react-icons/bi";
 const Navbar = () => {
   return (
     <header className="h-20 fixed top-0 left-0 right-0 bg-light/90 backdrop-blur-lg border-b border-dark/10 z-[100]">
@@ -37,7 +37,13 @@ const Navbar = () => {
           </ul>
         </nav>
         {/* NAV RIGHT */}
-        <nav>
+        <nav className="flex items-center gap-5 ">
+          <Link href="/cart" className="relative">
+            <BiShoppingBag />
+            <span className="absolute text-xs w-4 h-4 rounded-full bg-dark text-light flex justify-center items-center -right-2 -bottom-2">
+              5
+            </span>
+          </Link>
           <Button href="/login" placeholder="Login" color="green" />
         </nav>
       </div>
